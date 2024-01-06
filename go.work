@@ -1,0 +1,9 @@
+go 1.21.1
+
+use (
+	./psycacheStable
+	./example
+	psycacheStable/cachealgorithm
+	psycacheStable/psycache
+	psycacheStable/psycachepb
+)

@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package psycachepb;
+
+option go_package = "../psycachepb";
+
+message GetRequest {
+  string group = 1;
+  string key = 2;
+}
+
+message RemoveRequest {
+  string group = 1;
+  string key = 2;
+}
+
+message GetResponse {
+  bytes value = 1;
+}
+
+message RemoveResponse {
+  bool value = 1;
+}
+
+
+service PsyCache {
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc Remove(GetRequest) returns (RemoveResponse);
+}
