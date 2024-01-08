@@ -72,7 +72,7 @@ func main() {
 	var port int
 	var api bool
 	flag.IntVar(&port, "port", 8001, "psycache server port")        //命令行参数解析 这里解析的是端口
-	flag.BoolVar(&api, "visit", false, "make sure if we visit Tom") //命令行参数解析 这里解析的是是否访问Tom
+	flag.BoolVar(&api, "visit", false, "make sure if we visit cache") //命令行参数解析 这里解析的是是否访问缓存
 	flag.Parse()
 
 	var addrs []string //addrs == []string{"localhost:8001","localhost:8002","localhost:8003"}
