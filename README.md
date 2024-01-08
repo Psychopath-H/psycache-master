@@ -4,7 +4,7 @@ PsyCache是仿照groupcache实现的一个分布式缓存系统。
 - 提供多种缓存策略可选(FIFO、LRU、LFU、LRU-K、twoQ)；缓存具有过期机制，超时自动清理缓存；
 - 使用一致性哈希算法，实现分布式节点的动态扩缩容，规避数据倾斜问题；
 - 高并发访问缓存时，使用singleflight机制防止缓存击穿；
-- 使用GRPC进行节点间通信，通信数据格式选用Protobuf，提高通信效率；
+- 使用GRPC进行节点间通信，可以进行远端增加和删除缓存，通信数据格式选用Protobuf，提高通信效率；
 - 使用etcd作为节点的服务注册与发现，实现节点的动态管理
 - 使用jaeger进行分布式节点的链路追踪，能够观测到具体节点间的调用过程
 
@@ -105,7 +105,7 @@ func main() {
    var port int  
    var api bool  
    flag.IntVar(&port, "port", 8001, "psycache server port")        //命令行参数解析 这里解析的是端口  
-   flag.BoolVar(&api, "visit", false, "make sure if we visit Tom") //命令行参数解析 这里解析的是是否访问Tom  
+   flag.BoolVar(&api, "visit", false, "make sure if we visit cache") //命令行参数解析 这里解析的是是否访问缓存  
    flag.Parse()  
   
    var addrs []string //addrs == []string{"localhost:8001","localhost:8002","localhost:8003"}  
